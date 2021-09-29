@@ -50,7 +50,7 @@ def maximum_number_of_bison(start, end, wisents):
         try:
             amount_hay_and_acorn(start, end, wisents, project=False)
         except NoFoodException:
-            print(f'The maximum number of bison is {wisents}')
+            print(f'The maximum number of bison is {wisents-1}')
             check = False
         wisents += 1
 
