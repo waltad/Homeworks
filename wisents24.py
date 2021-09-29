@@ -46,6 +46,7 @@ def amount_hay_and_acorn(start, end, wisents, project=True):  # start - pierwszy
         print(f'Amount delivery hay: {amount_delivery_hay}, amount delivery acorn: {amount_delivery_acorn}. \n'
                 f'Hay feeding days: {hay_feeding_days}, acorn feeding days: {acorn_feeding_days}. \n'
                 f'The first day of feeding with acorns: {first_day_feeding_acorns.strftime("%d %B %Y")}')
+        print()
         print('-' * width)
         print('|    Data    | Zapasy siana | Zapasy żołędzi |')
         print('*' * width)
