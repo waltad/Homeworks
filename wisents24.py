@@ -1,19 +1,20 @@
 import datetime
 
 
-class NoFoodException(Exception):
+class NoFoodException(Exception):  # błąd oznaczający brak zapasów karmy dla żubrów
     pass
 
 
-def amount_hay_and_acorn(start, end, wisents, project=True):
-    hay = 100000
-    acorn = 5000
-    amount_delivery_hay = 0
-    amount_delivery_acorn = 0
-    hay_feeding_days = 0
-    acorn_feeding_days = 0
-    first_day_feeding_acorns = None
-    date = start
+def amount_hay_and_acorn(start, end, wisents, project=True):  # start - pierwszy dzień karmienia żubrów,
+    # end - ostatni dzień karmienia żubrów, wisents - liczba żubrów, project - czy wyświetlić dane?
+    hay = 100000  # początkowa ilość siana
+    acorn = 5000  # początkowa ilość żołędzi
+    amount_delivery_hay = 0  # ilość dni, w których odbyły się dostawy siana
+    amount_delivery_acorn = 0  # ilość dni, w których odbyły się dostawy żołędzi
+    hay_feeding_days = 0  # ilość dni karmienia sianem
+    acorn_feeding_days = 0  # ilość dni karmienia żołędziami
+    first_day_feeding_acorns = None  # pierwszy dzień, w którym zaczęto karmić żołedziami
+    date = start  # aktualna data
 
     while date <= end:
         if hay >= 50000:
@@ -44,16 +45,15 @@ def amount_hay_and_acorn(start, end, wisents, project=True):
                      f' {first_day_feeding_acorns.strftime("%B")} {first_day_feeding_acorns.strftime("%Y")}.')
 
 
-def maximum_number_of_bison(start, end, wisents):
+def maximum_number_of_bison(start, end, wisents=1):  # fukcja wyznaczająca maksymalną liczbę żubów, którą da się wyżywić
     check = True
     while check:
         try:
             amount_hay_and_acorn(start, end, wisents, project=False)
         except NoFoodException:
-            print(f'The maximum number of bison is {wisents-1}')
+            print(f'The maximum number of bison is {wisents - 1}')
             check = False
         wisents += 1
-
 
 
 if __name__ == '__main__':
@@ -61,4 +61,4 @@ if __name__ == '__main__':
     end_time = datetime.datetime(2013, 2, 28)
     bison = 90
     amount_hay_and_acorn(start_time, end_time, bison)
-    maximum_number_of_bison(start_time, end_time, bison)
+    maximum_number_of_bison(start_time, end_time)
