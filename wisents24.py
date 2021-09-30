@@ -50,12 +50,10 @@ def amount_hay_and_acorn(start, end, wisents, project=True):  # start - pierwszy
         print('-' * width)
         print(f"| {'Data':{10}} | Zapasy siana | Zapasy żołędzi |")
         print('*' * width)
-        print(
-            f"| {table[0][0].strftime('%d-%m-%Y')} | {(table[0][1] / 1000):{8}} ton | {(table[0][2] / 1000):{10}} ton |")
-        print(
-            f"| {table[0][0].strftime('%d-%m-%Y')} | {(table[1][1] / 1000):{8}} ton | {(table[1][2] / 1000):{10}} ton |")
-        print(
-            f"| {table[2][0].strftime('%d-%m-%Y')} | {(table[2][1] / 1000):{8}} ton | {(table[2][2] / 1000):{10}} ton |")
+        for i in range(3):
+            print(
+                f"| {table[i][0].strftime('%d-%m-%Y')} | {(table[i][1] / 1000):{8}} ton |"
+                f" {(table[i][2] / 1000):{10}} ton |")
         print('-' * width)
 
 
