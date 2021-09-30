@@ -39,18 +39,23 @@ def amount_hay_and_acorn(start, end, wisents, project=True):  # start - pierwszy
         if date.strftime('%a') == 'Tue':
             acorn += 4000
             amount_delivery_hay += 1
-        if date.strftime('%d-%m-%Y') == '31-12-2012' or date.strftime('%d-%m-%Y') == '31-01-2013' or date.strftime('%d-%m-%Y') == '28-02-2013':
+        if date.strftime('%d-%m-%Y') == '31-12-2012' or date.strftime('%d-%m-%Y') == '31-01-2013' or \
+                date.strftime('%d-%m-%Y') == '28-02-2013':
             table.append([date, hay, acorn])
         date += datetime.timedelta(days=1)
     if project:
         print(f'Amount delivery hay: {amount_delivery_hay}, amount delivery acorn: {amount_delivery_acorn}. \n'
                 f'Hay feeding days: {hay_feeding_days}, acorn feeding days: {acorn_feeding_days}. \n'
-                f'The first day of feeding with acorns: {first_day_feeding_acorns.strftime("%d %B %Y")}')
-        print()
+                f'The first day of feeding with acorns: {first_day_feeding_acorns.strftime("%d %B %Y")} \n')
         print('-' * width)
         print('|    Data    | Zapasy siana | Zapasy żołędzi |')
         print('*' * width)
-        print(f"| {table[0][0].strftime('%d-%m-%Y')} | {table[0][1]/1000} ton | {table[0][2]/1000} ton |")
+        print(
+            f"| {table[0][0].strftime('%d-%m-%Y')} |     {(table[0][1] / 1000)} ton |       {(table[0][2] / 1000)} ton |")
+        print(
+            f"| {table[0][0].strftime('%d-%m-%Y')} |     {(table[1][1] / 1000)} ton |       {(table[1][2] / 1000)} ton |")
+        print(
+            f"| {table[2][0].strftime('%d-%m-%Y')} |     {(table[2][1] / 1000)} ton |       {(table[2][2] / 1000)} ton |")
         print('-' * width)
 
 
