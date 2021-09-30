@@ -48,14 +48,14 @@ def amount_hay_and_acorn(start, end, wisents, project=True):  # start - pierwszy
                 f'Hay feeding days: {hay_feeding_days}, acorn feeding days: {acorn_feeding_days}. \n'
                 f'The first day of feeding with acorns: {first_day_feeding_acorns.strftime("%d %B %Y")} \n')
         print('-' * width)
-        print('|    Data    | Zapasy siana | Zapasy żołędzi |')
+        print(f"| {'Data':{10}} | Zapasy siana | Zapasy żołędzi |")
         print('*' * width)
         print(
-            f"| {table[0][0].strftime('%d-%m-%Y')} |     {(table[0][1] / 1000)} ton |       {(table[0][2] / 1000)} ton |")
+            f"| {table[0][0].strftime('%d-%m-%Y')} | {(table[0][1] / 1000):{8}} ton | {(table[0][2] / 1000):{10}} ton |")
         print(
-            f"| {table[0][0].strftime('%d-%m-%Y')} |     {(table[1][1] / 1000)} ton |       {(table[1][2] / 1000)} ton |")
+            f"| {table[0][0].strftime('%d-%m-%Y')} | {(table[1][1] / 1000):{8}} ton | {(table[1][2] / 1000):{10}} ton |")
         print(
-            f"| {table[2][0].strftime('%d-%m-%Y')} |     {(table[2][1] / 1000)} ton |       {(table[2][2] / 1000)} ton |")
+            f"| {table[2][0].strftime('%d-%m-%Y')} | {(table[2][1] / 1000):{8}} ton | {(table[2][2] / 1000):{10}} ton |")
         print('-' * width)
 
 
